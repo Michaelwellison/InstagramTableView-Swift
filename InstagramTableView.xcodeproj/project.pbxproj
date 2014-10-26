@@ -13,6 +13,7 @@
 		D5E0E40219FD632600D44D2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5E0E40119FD632600D44D2B /* Images.xcassets */; };
 		D5E0E40519FD632600D44D2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E0E40319FD632600D44D2B /* LaunchScreen.xib */; };
 		D5E0E41119FD632600D44D2B /* InstagramTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E0E41019FD632600D44D2B /* InstagramTableViewTests.swift */; };
+		D5E0E41B19FD697B00D44D2B /* NamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E0E41A19FD697B00D44D2B /* NamesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,8 @@
 		D5E0E40A19FD632600D44D2B /* InstagramTableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramTableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E0E40F19FD632600D44D2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5E0E41019FD632600D44D2B /* InstagramTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramTableViewTests.swift; sourceTree = "<group>"; };
+		D5E0E41A19FD697B00D44D2B /* NamesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamesCell.swift; sourceTree = "<group>"; };
+		D5E0E41C19FD706800D44D2B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +82,9 @@
 			children = (
 				D5E0E3FA19FD632600D44D2B /* AppDelegate.swift */,
 				D5E0E3FC19FD632600D44D2B /* ViewController.swift */,
+				D5E0E41C19FD706800D44D2B /* MyPlayground.playground */,
 				D5E0E3FE19FD632600D44D2B /* Main.storyboard */,
+				D5E0E41A19FD697B00D44D2B /* NamesCell.swift */,
 				D5E0E40119FD632600D44D2B /* Images.xcassets */,
 				D5E0E40319FD632600D44D2B /* LaunchScreen.xib */,
 				D5E0E3F819FD632600D44D2B /* Supporting Files */,
@@ -212,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5E0E41B19FD697B00D44D2B /* NamesCell.swift in Sources */,
 				D5E0E3FD19FD632600D44D2B /* ViewController.swift in Sources */,
 				D5E0E3FB19FD632600D44D2B /* AppDelegate.swift in Sources */,
 			);
