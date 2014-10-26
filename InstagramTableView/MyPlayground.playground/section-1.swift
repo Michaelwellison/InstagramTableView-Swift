@@ -47,3 +47,8 @@ var users = [
 ]
 
 
+users.count
+var user = users[4]
+
+user["hometown"]
+user["name"]
