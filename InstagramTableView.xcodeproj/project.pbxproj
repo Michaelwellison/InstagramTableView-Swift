@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D5609EBC19FEB54200AD3CA5 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5609EBB19FEB54200AD3CA5 /* PhotoCell.swift */; };
 		D5E0E3FB19FD632600D44D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E0E3FA19FD632600D44D2B /* AppDelegate.swift */; };
 		D5E0E3FD19FD632600D44D2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E0E3FC19FD632600D44D2B /* ViewController.swift */; };
 		D5E0E40019FD632600D44D2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5E0E3FE19FD632600D44D2B /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D5609EBB19FEB54200AD3CA5 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		D5E0E3F519FD632600D44D2B /* InstagramTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E0E3F919FD632600D44D2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5E0E3FA19FD632600D44D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				D5E0E3FC19FD632600D44D2B /* ViewController.swift */,
 				D5E0E41C19FD706800D44D2B /* MyPlayground.playground */,
 				D5E0E3FE19FD632600D44D2B /* Main.storyboard */,
+				D5609EBB19FEB54200AD3CA5 /* PhotoCell.swift */,
 				D5E0E41A19FD697B00D44D2B /* NamesCell.swift */,
 				D5E0E40119FD632600D44D2B /* Images.xcassets */,
 				D5E0E40319FD632600D44D2B /* LaunchScreen.xib */,
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5609EBC19FEB54200AD3CA5 /* PhotoCell.swift in Sources */,
 				D5E0E41B19FD697B00D44D2B /* NamesCell.swift in Sources */,
 				D5E0E3FD19FD632600D44D2B /* ViewController.swift in Sources */,
 				D5E0E3FB19FD632600D44D2B /* AppDelegate.swift in Sources */,
@@ -411,6 +415,7 @@
 				D5E0E41619FD632600D44D2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D5E0E41719FD632600D44D2B /* Build configuration list for PBXNativeTarget "InstagramTableViewTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +424,7 @@
 				D5E0E41919FD632600D44D2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

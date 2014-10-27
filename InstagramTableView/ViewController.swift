@@ -57,15 +57,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         configureTableView()
+        configureURLConnection()
     }
     
     // MARK: Configuration
     
-    func configureTableView() {
+    func configureTableView () {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100
     
+    }
+    
+    func configureURLConnection () {
+        var url = NSURL(string: "https://api.instagram.com/v1/media/popular?client_id=e6135d83e50c4d9184e937a61fa54bbe")
+        
+        var request = NSURLRequest(URL: url)
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response, data, error) -> Void in
+            // got our code here
+            
+            var objects: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil)
+            
+            println("objects \(objects)")
+        }
     }
     
     // MARK: Table View Delegate
