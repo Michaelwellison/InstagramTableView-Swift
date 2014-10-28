@@ -91,13 +91,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("NamesCell") as NamesCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as PhotoCell
         
         var user = users[indexPath.row]
         
-        cell.nameLabel.text = user["name"]
-        cell.hometownLabel.text = user["hometown"]
-        
+        //cell.photoImageView.image =
         return cell
     }
     

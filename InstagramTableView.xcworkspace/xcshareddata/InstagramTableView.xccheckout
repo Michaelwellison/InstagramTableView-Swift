@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>861CE63E-1692-4111-AD75-FE037BF992C0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>InstagramTableView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>68A3B6887865F28FC75BCA3A1365AB82245E847A</key>
+		<string>https://github.com/Michaelwellison/InstagramTableView-Swift.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>InstagramTableView.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>68A3B6887865F28FC75BCA3A1365AB82245E847A</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Michaelwellison/InstagramTableView-Swift.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>68A3B6887865F28FC75BCA3A1365AB82245E847A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>68A3B6887865F28FC75BCA3A1365AB82245E847A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>InstagramTableView</string>
+		</dict>
+	</array>
+</dict>
+</plist>
