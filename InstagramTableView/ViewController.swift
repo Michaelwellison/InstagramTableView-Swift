@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: Variables
     
+    var photos: NSArray! = []
     var users = [
         [
             "name":"Hana",
@@ -70,16 +71,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func configureURLConnection () {
-        var url = NSURL(string: "https://api.instagram.com/v1/media/popular?client_id=e6135d83e50c4d9184e937a61fa54bbe")
+//        var url = NSURL(string: "https://api.instagram.com/v1/media/popular?client_id=e6135d83e50c4d9184e937a61fa54bbe")
+//        
+//        var request = NSURLRequest(URL: url)
+//        
+//        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response, data, error) -> Void in
+//            // got our code here
+//            
+//            var objects: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil)
+//            
+//            println("objects \(objects)")
+//        }
         
+        var clientId = "e6135d83e50c4d9184e937a61fa54bbe"
+        
+        var url = NSURL(string: "https://api.instagram.com/v1/media/popular?client_id=\(clientId)")
         var request = NSURLRequest(URL: url)
-        
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response, data, error) -> Void in
-            // got our code here
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            var responseDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
+            self.photos = responseDictionary["data"] as NSArray
+            self.tableView.reloadData()
             
-            var objects: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil)
-            
-            println("objects \(objects)")
+            println("response: \(self.photos)")
         }
     }
     
