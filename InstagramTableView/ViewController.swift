@@ -56,7 +56,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         configureTableView()
         configureURLConnection()
     }
@@ -99,14 +98,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: Table View Delegate
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println(users.count)
-        return users.count
+        return photos.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as PhotoCell
         
-        var user = users[indexPath.row]
+//        var user = users[indexPath.row]
+        var photo = photos[indexPath.row] as NSDictionary
+        cell.imageURL.text = photo.valueForKeyPath("images.low_resolution.url") as? String
         
         //cell.photoImageView.image =
         return cell

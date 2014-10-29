@@ -55,12 +55,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fWb-R8-HEB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="640" height="599"/>
+                                                    <rect key="frame" x="44" y="32" width="233" height="236"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ImageURL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oBU-G5-CVp">
+                                                    <rect key="frame" x="44" y="3" width="268" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="imageURL" destination="oBU-G5-CVp" id="Zs4-7s-zSZ"/>
                                             <outlet property="photoImageView" destination="y2U-0D-gyV" id="XTC-nw-nWw"/>
                                         </connections>
                                     </tableViewCell>
