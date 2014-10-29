@@ -69,7 +69,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageURL" destination="oBU-G5-CVp" id="Zs4-7s-zSZ"/>
-                                            <outlet property="photoImageView" destination="y2U-0D-gyV" id="XTC-nw-nWw"/>
+                                            <outlet property="photoView" destination="fWb-R8-HEB" id="Jxy-yf-0Yr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

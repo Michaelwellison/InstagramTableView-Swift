@@ -107,8 +107,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        var user = users[indexPath.row]
         var photo = photos[indexPath.row] as NSDictionary
         cell.imageURL.text = photo.valueForKeyPath("images.low_resolution.url") as? String
-        
-        //cell.photoImageView.image =
+        cell.photoView.setImageWithURL(NSURL(string: cell.imageURL.text!))
+
         return cell
     }
     
