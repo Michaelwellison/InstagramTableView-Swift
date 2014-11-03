@@ -116,11 +116,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        println("You selected row \(indexPath.row) at section \(indexPath.section)")
-
-        var user = users[indexPath.row]
-        var name = user["name"]
+      //  tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         performSegueWithIdentifier("PhotoDetailSegue", sender: self)
         
@@ -159,15 +155,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Determine which row was selected
-        var cell = sender as PhotoCell
-        var indexPath = tableView.indexPathForCell(cell)
+        println("we got here")
         
-        // Get the view controller that we're transitioning to.
+        let indexPath = tableView.indexPathForSelectedRow()
+        
+//        if segue.identifier == "PhotoDetailSegue" {
+//            var indexPath = tableView.indexPathForCell(cell)
+//        }
+//        var cell = sender as UITableViewCell
+//        var indexPath = tableView.indexPathForCell(cell)
+        
+        println("We got this far")
+        
+        println(indexPath)
+        
+//        // Get the view controller that we're transitioning to.
         var photoDetailsViewController = segue.destinationViewController as PhotosDetailsViewController
-        
-        // Set the data of the view controller
-        
 
+//        // Set the data of the view controller
+      
         var photo = photos[indexPath!.row] as NSDictionary
         photoDetailsViewController.photo = photo
 
