@@ -70,17 +70,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func configureURLConnection () {
-//        var url = NSURL(string: "https://api.instagram.com/v1/media/popular?client_id=e6135d83e50c4d9184e937a61fa54bbe")
-//        
-//        var request = NSURLRequest(URL: url)
-//        
-//        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response, data, error) -> Void in
-//            // got our code here
-//            
-//            var objects: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil)
-//            
-//            println("objects \(objects)")
-//        }
         
         var clientId = "e6135d83e50c4d9184e937a61fa54bbe"
         
@@ -141,7 +130,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return 50
     }
     
     
@@ -159,20 +148,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let indexPath = tableView.indexPathForSelectedRow()
         
-//        if segue.identifier == "PhotoDetailSegue" {
-//            var indexPath = tableView.indexPathForCell(cell)
-//        }
-//        var cell = sender as UITableViewCell
-//        var indexPath = tableView.indexPathForCell(cell)
-        
         println("We got this far")
         
         println(indexPath)
         
-//        // Get the view controller that we're transitioning to.
+        // Get the view controller that we're transitioning to.
         var photoDetailsViewController = segue.destinationViewController as PhotosDetailsViewController
 
-//        // Set the data of the view controller
+        // Set the data of the view controller
       
         var photo = photos[indexPath!.row] as NSDictionary
         photoDetailsViewController.photo = photo

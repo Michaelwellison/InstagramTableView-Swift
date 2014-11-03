@@ -18,11 +18,10 @@ class PhotosDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        photoImageView.frame.size = CGSize(width: 286, height: 236)
+        
         photoDetailLabel.text = photo!.valueForKeyPath("caption.text") as? String
         var imageURL = photo!.valueForKeyPath("images.low_resolution.url") as? String
         photoImageView.setImageWithURL(NSURL(string: imageURL!))
-        
             }
 
     override func didReceiveMemoryWarning() {
