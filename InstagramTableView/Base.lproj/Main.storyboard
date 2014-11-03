@@ -54,21 +54,21 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fPI-yv-PDK" id="y2U-0D-gyV">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fWb-R8-HEB">
-                                                    <rect key="frame" x="44" y="32" width="233" height="236"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fWb-R8-HEB">
+                                                    <rect key="frame" x="19" y="8" width="286" height="236"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ImageURL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oBU-G5-CVp">
-                                                    <rect key="frame" x="44" y="3" width="268" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ImageCaption" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oBU-G5-CVp">
+                                                    <rect key="frame" x="31" y="252" width="266" height="39"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imageURL" destination="oBU-G5-CVp" id="Zs4-7s-zSZ"/>
+                                            <outlet property="imageCaption" destination="oBU-G5-CVp" id="v8P-z6-W48"/>
                                             <outlet property="photoView" destination="fWb-R8-HEB" id="Jxy-yf-0Yr"/>
                                         </connections>
                                     </tableViewCell>
@@ -80,11 +80,44 @@
                     <navigationItem key="navigationItem" title="InstaBillions" id="rgj-Gc-h4F"/>
                     <connections>
                         <outlet property="tableView" destination="6Q5-04-yX6" id="4UD-Is-ppE"/>
+                        <segue destination="j7j-iB-Qi3" kind="push" identifier="PhotoDetailSegue" id="lxd-Wv-E9z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="713" y="362"/>
+        </scene>
+        <!--Photos Details View Controller-->
+        <scene sceneID="z2E-eo-DIr">
+            <objects>
+                <viewController id="j7j-iB-Qi3" customClass="PhotosDetailsViewController" customModule="InstagramTableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fql-Ni-mh5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="AOM-to-tQg">
+                                <rect key="frame" x="0.0" y="63" width="320" height="399"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Details Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q8h-gq-HzX">
+                                <rect key="frame" x="16" y="470" width="304" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ktl-vP-P1E"/>
+                    <connections>
+                        <outlet property="photoDetailLabel" destination="Q8h-gq-HzX" id="Z7A-4l-sbp"/>
+                        <outlet property="photoImageView" destination="AOM-to-tQg" id="lgF-IT-bGA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69N-jn-024" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1090" y="361"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VU4-VW-42W">

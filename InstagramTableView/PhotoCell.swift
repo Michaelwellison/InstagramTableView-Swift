@@ -10,12 +10,13 @@ import UIKit
 
 class PhotoCell: UITableViewCell {
 
+    @IBOutlet weak var imageCaption: UILabel!
     @IBOutlet weak var photoView: UIImageView!
-    @IBOutlet weak var imageURL: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

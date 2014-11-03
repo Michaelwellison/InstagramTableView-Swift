@@ -65,7 +65,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func configureTableView () {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 100
+        tableView.rowHeight = 300
     
     }
     
@@ -86,6 +86,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         var url = NSURL(string: "https://api.instagram.com/v1/media/popular?client_id=\(clientId)")
         var request = NSURLRequest(URL: url)
+        
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             var responseDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
             self.photos = responseDictionary["data"] as NSArray
@@ -104,21 +105,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as PhotoCell
         
-//        var user = users[indexPath.row]
         var photo = photos[indexPath.row] as NSDictionary
-        cell.imageURL.text = photo.valueForKeyPath("images.low_resolution.url") as? String
-        cell.photoView.setImageWithURL(NSURL(string: cell.imageURL.text!))
-
+        cell.photoView.frame.size = CGSize(width: 286, height: 236)
+        cell.imageCaption.text = photo.valueForKeyPath("caption.text") as? String
+        var imageURL = photo.valueForKeyPath("images.low_resolution.url") as? String
+        cell.photoView.setImageWithURL(NSURL(string: imageURL!))
+        
+        
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         println("You selected row \(indexPath.row) at section \(indexPath.section)")
-        
+
         var user = users[indexPath.row]
         var name = user["name"]
-        println("Hello \(name)")
+        
+        performSegueWithIdentifier("PhotoDetailSegue", sender: self)
+        
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -149,7 +154,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: NAVIGATION
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Determine which row was selected
+        var cell = sender as PhotoCell
+        var indexPath = tableView.indexPathForCell(cell)
+        
+        // Get the view controller that we're transitioning to.
+        var photoDetailsViewController = segue.destinationViewController as PhotosDetailsViewController
+        
+        // Set the data of the view controller
+        
 
+        var photo = photos[indexPath!.row] as NSDictionary
+        photoDetailsViewController.photo = photo
+
+    }
 
 }
 
