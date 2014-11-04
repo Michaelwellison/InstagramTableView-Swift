@@ -29,4 +29,4 @@ In order to run the project correctly, you should have the latest version of Xco
 
 ### Project Walkthrough
 
-[Imgur](http://i.imgur.com/duj0ycw.gifv)
+<a href="http://imgur.com/duj0ycw"><img src="http://i.imgur.com/duj0ycw.gif" title="source: imgur.com" /></a>
