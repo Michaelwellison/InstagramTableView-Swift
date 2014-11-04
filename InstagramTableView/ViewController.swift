@@ -64,7 +64,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as PhotoCell
         
         var photo = photos[indexPath.section] as NSDictionary
-        cell.photoView.frame.size = CGSize(width: 286, height: 236)
         cell.imageCaption.text = photo.valueForKeyPath("caption.text") as? String
         var imageURL = photo.valueForKeyPath("images.low_resolution.url") as? String
         cell.photoView.setImageWithURL(NSURL(string: imageURL!))
