@@ -17,40 +17,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: Variables
     
     var photos: NSArray! = []
-    var users = [
-        [
-            "name":"Hana",
-            "hometown":"Detroit"
-        ],
-        [
-            "name":"Ida",
-            "hometown":"San Francisco"
-        ],
-        [
-            "name":"Jessica",
-            "hometown":"Detroit"
-        ],
-        [
-            "name":"Bjorn",
-            "hometown":"Oslo"
-        ],
-        [
-            "name":"Alli",
-            "hometown":"San Francisco"
-        ],
-        [
-            "name":"Jayne",
-            "hometown":"Louis"
-        ],
-        [
-            "name":"David",
-            "hometown":"Kodiak"
-        ],
-        [
-            "name":"Hamza",
-            "hometown":"Los Angeles"
-        ]
-    ]
     
     // MARK: View Lifecycle
     
@@ -66,7 +32,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 300
-    
     }
     
     func configureURLConnection () {
@@ -88,51 +53,66 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: Table View Delegate
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return photos.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as PhotoCell
         
-        var photo = photos[indexPath.row] as NSDictionary
+        var photo = photos[indexPath.section] as NSDictionary
         cell.photoView.frame.size = CGSize(width: 286, height: 236)
         cell.imageCaption.text = photo.valueForKeyPath("caption.text") as? String
         var imageURL = photo.valueForKeyPath("images.low_resolution.url") as? String
         cell.photoView.setImageWithURL(NSURL(string: imageURL!))
         
-        
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      //  tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
+        //  tableView.deselectRowAtIndexPath(indexPath, animated: true)
         performSegueWithIdentifier("PhotoDetailSegue", sender: self)
-        
-    }
-    
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        // create our top level header view
-        var headerView = UIView(frame: CGRect(x: 10, y: 0, width: 310, height: 100))
-        headerView.backgroundColor = UIColor(white: 0.8, alpha: 0.8)
-        
-        // add our label
-        var label = UILabel(frame: headerView.frame)
-        label.text = "Section \(section)"
-        label.font = UIFont.systemFontOfSize(20)
-        
-        // don't forget to add label as a subview of header view
-        headerView.addSubview(label)
-        
-        // return the headerView to the tableView
-        
-        return headerView
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
     
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        // create the header view
+        var headerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        headerView.backgroundColor = UIColor(white: 1, alpha: 0.9)
+        
+        // Retrieve data for each object in our header
+        var photo = photos[section] as NSDictionary
+        var user = photo["user"] as NSDictionary
+        var username = user["username"] as String
+        var profileUrl = NSURL(string: user["profile_picture"] as String)
+        var label = UILabel(frame: headerView.frame)
+        
+        // Create the profile image view and add to header view
+        var profileView = UIImageView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
+        profileView.clipsToBounds = true
+        profileView.layer.cornerRadius = 15;
+        profileView.layer.borderColor = UIColor(white: 0.7, alpha: 0.8).CGColor
+        profileView.layer.borderWidth = 1
+        profileView.setImageWithURL(profileUrl)
+        headerView.addSubview(profileView)
+        
+        // Create the Profile label and add it to the header view
+        var usernameLabel = UILabel(frame: CGRect(x: 50, y: 10, width: 250, height: 30))
+        usernameLabel.text = username
+        usernameLabel.font = UIFont.boldSystemFontOfSize(16)
+        usernameLabel.textColor = UIColor(red: 8/255.0, green: 64/255.0, blue: 127/255.0, alpha: 1)
+        headerView.addSubview(usernameLabel)
+        
+        // return the headerView to the tableView
+        
+        return headerView
+    }
     
 
     override func didReceiveMemoryWarning() {
@@ -143,21 +123,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: NAVIGATION
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         // Determine which row was selected
-        println("we got here")
         
         let indexPath = tableView.indexPathForSelectedRow()
-        
-        println("We got this far")
-        
-        println(indexPath)
         
         // Get the view controller that we're transitioning to.
         var photoDetailsViewController = segue.destinationViewController as PhotosDetailsViewController
 
         // Set the data of the view controller
       
-        var photo = photos[indexPath!.row] as NSDictionary
+        var photo = photos[indexPath!.section] as NSDictionary
         photoDetailsViewController.photo = photo
 
     }
